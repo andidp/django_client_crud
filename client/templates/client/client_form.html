@@ -1,0 +1,23 @@
+{% extends '../base.html' %}
+
+{% block content %}
+
+{% if object.id %}
+    <h2>Update record:</h2>
+{% else %}
+    <h2>Create new record:</h2>
+{% endif %}
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Save">
+    <button id="backToList" type="button">List</button>
+</form>
+
+<script type="text/javascript">
+    document.getElementById("backToList").onclick = function () {
+        location.href = "{% url 'client_list' %}";
+    }
+</script>
+{% endblock %}

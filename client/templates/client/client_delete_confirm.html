@@ -1,0 +1,22 @@
+{% extends '../base.html' %}
+
+
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    You will delete the record: <br><br>
+    <strong>
+        ID: {{ object.id }} <br>
+        Full Name: {{ object.name | title }}
+    </strong>
+    <br><br>
+    <p>Do you want to confirm?</p>
+    <input type="submit" value="Confirm">
+    <button type="button" id="backToList">Cancel</button>
+</form>
+<script type="text/javascript">
+    document.getElementById("backToList").onclick = function () {
+        location.href = "{% url 'client_list' %}";
+    }
+</script>
+{% endblock %}

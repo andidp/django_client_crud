@@ -1,0 +1,11 @@
+.pytest_cache
+**/*/__pycache__
+.tox
+venv/
+.coverage
+**/*/*_initial.py
+staticfiles/
+*.bak
+*.sqlite3
+.vscode
+.idea
